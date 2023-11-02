@@ -1,16 +1,26 @@
 <template>
   <div class="item">
-    <i>
-      <slot name="icon"></slot>
-    </i>
+    <i> <slot name="icon"></slot></i>
     <div class="details">
       <h3>
-        <slot name="heading"></slot>
+        <slot name="heading"></slot> {{ foo }}
       </h3>
       <slot></slot>
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+export default defineComponent({
+  setup() {
+    const foo = ref('bar')
+    return {
+      foo
+    }
+  }
+})
+</script>
 
 <style scoped>
 .item {
